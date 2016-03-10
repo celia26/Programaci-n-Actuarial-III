@@ -91,3 +91,60 @@ for(i in 1:n){
 mensajes
 table(mensajes)
 plot(table(mensajes))
+
+contador<-0
+while(contador<=10){
+    print(contador)
+    contador<-contador+1
+}
+
+for(i in 1:10){
+    j<-0
+    while(j>10){
+        j<-j+1
+        if(j>10000){
+            print(j)
+            break
+        }
+    }
+    print(i)
+}
+
+z<-5
+k<-1
+while(z>=3 && z<=10){
+    print(z)
+    moneda<-runif(1)
+    if(moneda<=0.5){
+        z<-z+1
+    }else { 
+        z<-1
+    }
+    k<-k+1
+    if(k>=100000)break
+}
+
+z <- 5
+k <- 1
+g<- vector("numeric", 0)
+
+while (z>=3 && z<=10) {
+    
+    length(g) <- length(g)+1
+    g[k] <- z
+    
+    moneda <- rbinom(1,1,0.5)
+    
+    if (moneda==1){
+        z <- z+1
+        g[k]<-z
+        
+    } else {
+        z <- z-1
+        g[k]<- z
+    }
+    
+    k <- k+1
+}
+
+print(g)
