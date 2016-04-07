@@ -129,23 +129,18 @@ k <- 1
 g<- vector("numeric", 0)
 
 while (z>=3 && z<=10) {
-    
     length(g) <- length(g)+1
     g[k] <- z
+    moneda <- runif(1)
     
-    moneda <- rbinom(1,1,0.5)
-    
-    if (moneda==1){
-        z <- z+1
-        g[k]<-z
-        
+    if (moneda<=0.5){
+        z <- z+0.5
     } else {
-        z <- z-1
-        g[k]<- z
+        z <- z-0.5
     }
-    
     k <- k+1
+    if (k>5000) break
 }
-
 print(g)
+plot(g, type = "l")
 

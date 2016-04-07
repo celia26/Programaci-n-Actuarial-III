@@ -162,8 +162,15 @@ mayor<-function(x,y){
 mayor(1:100,50)
 
 airquality
-promedioCols<-function(x){
-    resultado<-mean(airquality[,c(x)])
-    resultado
+promedioCols<-function(x,na.rm=TRUE){
+    l<-ncol(x)
+    y<-vector("numeric", l)
+    for(i in 1:l){
+        y[i]<-mean(x[,i],na.rm =na.rm)
+    }
+    y
 }
-promedioCols(5)
+promedioCols(airquality)
+
+library(ggplot2)
+
