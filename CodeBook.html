@@ -70,130 +70,68 @@ img {
 <div id="programacion-actuarial-iii" class="section level4">
 <h4>Programación Actuarial III</h4>
 </div>
-<div id="caso-reconocimiento-de-actividad-humana-con-celulares" class="section level4">
-<h4>Caso: Reconocimiento de Actividad Humana con Celulares</h4>
-<p>El propósito de este proyecto es demostrar tu habilidad para recolectar, trabajar y limpiar base de datos.</p>
+<div id="codebook-reconocimiento-de-actividad-humana-con-celulares" class="section level4">
+<h4>CodeBook :Reconocimiento de Actividad Humana con Celulares</h4>
 </div>
 </div>
 </div>
-<div id="acerca-de-la-base-de-datos" class="section level2">
-<h2>Acerca de la base de datos</h2>
-<p>Una mayor descripción de la base de datos y su recopilación puede ser hallada en la siguiente liga: <a href="http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones" class="uri">http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones</a></p>
-</div>
-<div id="archivos-en-el-proyecto" class="section level2">
-<h2>Archivos en el proyecto</h2>
-<p>El proyecto contiene los siguintes archivos:</p>
+<div id="despcipcion-de-la-base-de-datos" class="section level2">
+<h2>Despcipción de la base de datos</h2>
+<p>Los experimentos se han llevado a cabo con un grupo de 30 voluntarios dentro de un grupo de edad de 19-48 años. Cada persona lleva a cabo seis actividades (WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING) usando un teléfono inteligente (Samsung Galaxy S II) en la cintura.</p>
+<p>A través de su acelerómetro incorporado y giroscopio, hemos capturado aceleración lineal 3-axial y velocidad angular 3-axial a una velocidad constante de 50 Hz. Los experimentos han sido grabadas en vídeo para etiquetar los datos de forma manual. El conjunto de datos obtenidos se ha dividido aleatoriamente en dos grupos, en los que se seleccionó el 70% de los voluntarios para la generación de los datos de entrenamiento y 30% de los datos de prueba.</p>
+<p>Las señales del sensor (acelerómetro y giroscopio) fueron pre-procesados mediante la aplicación de filtros de ruido y luego se muestrean en deslizamiento de ancho fijo ventanas de 2,56 seg y 50% de solapamiento (128 lecturas / ventana). La señal de aceleración del sensor, que tiene componentes gravitacionales y el movimiento del cuerpo, se separó usando un filtro de paso bajo Butterworth en aceleración cuerpo y la gravedad. La fuerza de la gravedad se supone que tiene sólo componentes de baja frecuencia, por lo tanto, se utilizó un filtro con 0,3 Hz frecuencia de corte. A partir de cada ventana, un vector de características se obtuvo mediante el cálculo de las variables de tiempo y el dominio de la frecuencia.</p>
+<div id="datos-originales" class="section level3">
+<h3>Datos Originales</h3>
+<p>La base de datos contiene:</p>
 <ul>
-<li><code>./datasets/UCI HAR Dataset</code></li>
-<li><code>README.md</code>: Descripción de los pasos para hacer el análisis.</li>
-<li><code>CodeBook.md</code>: Aparecen todas las variables, la base de datos y las transformaciones se realizaron.</li>
-<li><code>run_analysis.R</code>: Código que hace el análisis.</li>
+<li>Un vector de 561 variables de tiempo y el dominio de la frecuencia.</li>
+<li>Sus etiquetas de actividades.</li>
+<li>Un identificador del voluntario que participó en el experimento.</li>
+</ul>
+<p>Las señales fueron utilizadas para estimar variables del vector para cada patrón: ‘-XYZ’ es utilizado para denotar señales de 3 ejes en direcciones X, Y y Z.</p>
+<p>tBodyAcc-XYZ<br />tGravityAcc-XYZ<br />tBodyAccJerk-XYZ<br />tBodyGyro-XYZ<br />tBodyGyroJerk-XYZ<br />tBodyAccMag<br />tGravityAccMag<br />tBodyAccJerkMag<br />tBodyGyroMag<br />tBodyGyroJerkMag<br />fBodyAcc-XYZ<br />fBodyAccJerk-XYZ<br />fBodyGyro-XYZ<br />fBodyAccMag<br />fBodyAccJerkMag<br />fBodyGyroMag<br />fBodyGyroJerkMag</p>
+<p>El conjunto de variables que se estimaron a partir de estas señales son:</p>
+<p>mean(): Mean value<br />std(): Standard deviation<br />mad(): Median absolute deviation<br />max(): Largest value in array<br />min(): Smallest value in array<br />sma(): Signal magnitude area<br />energy(): Energy measure. Sum of the squares divided by the number of values.<br />iqr(): Interquartile range<br />entropy(): Signal entropy<br />arCoeff(): Autorregresion coefficients with Burg order equal to 4<br />correlation(): correlation coefficient between two signals<br />maxInds(): index of the frequency component with largest magnitude<br />meanFreq(): Weighted average of the frequency components to obtain a mean frequency<br />skewness(): skewness of the frequency domain signal<br />kurtosis(): kurtosis of the frequency domain signal<br />bandsEnergy(): Energy of a frequency interval within the 64 bins of the FFT of each window. angle(): Angle between to vectors.</p>
+<p>Vectores adicionales obtenidos mediante las señales en una muestra de ventana de señal. Son utilizados en la variable angle():</p>
+<p>gravityMean<br />tBodyAccMean<br />tBodyAccJerkMean<br />tBodyGyroMean<br />tBodyGyroJerkMean</p>
+</div>
+</div>
+<div id="transformaciones" class="section level2">
+<h2>Transformaciones</h2>
+<p>Las siguientes transformaciones son las que se han aplicado a la base de datos original:</p>
+<div id="une-los-datos-de-test-con-los-de-training-para-crear-un-solo-conjunto-de-datos" class="section level3">
+<h3>Une los datos de test con los de training, para crear un solo conjunto de datos</h3>
+<p>Los datos de test y los de training se juntaron. En la versión original se encuentran divididos en dos archivos.</p>
+</div>
+<div id="extrae-unicamente-las-medidas-de-media-y-desviacion-estandar-de-cada-medicion" class="section level3">
+<h3>Extrae únicamente las medidas de media y desviación estándar de cada medición</h3>
+<p>Solo se dejaron las medidas de media y desviación estándar. Lo cual significa que de los 561 datos en el vector, se redujeron a 66.</p>
+</div>
+<div id="usa-nombres-de-actividad-para-describir-los-nombres-de-las-actividades-en-la-base-de-datos" class="section level3">
+<h3>Usa nombres de actividad para describir los nombres de las actividades en la base de datos</h3>
+<p>Se agregaron a la base de datos los voluntarios y las actividades. El voluntario es un entero entre 1 - 30 y la actividad es el vector que describe 6 actividades:</p>
+<ol style="list-style-type: decimal">
+<li>WALKING<br /></li>
+<li>WALKING_UPSTAIRS<br /></li>
+<li>WALKING_DOWNSTAIRS<br /></li>
+<li>SITTING<br /></li>
+<li>STANDING<br /></li>
+<li>LAYING</li>
+</ol>
+</div>
+<div id="coloca-etiquetas-apropiadas-en-la-base-de-datos-con-nombres-de-variables-que-las-describan" class="section level3">
+<h3>Coloca etiquetas apropiadas en la base de datos con nombres de variables que las describan</h3>
+<p>Las columnas se volvieron a nombrar para volverlas entendibles. Se utilizó el siguiente patrón:</p>
+<ul>
+<li>Nombre original: <code>tBodyGyroJerk-mean()-X</code></li>
+<li>Nuevo nombre: <code>MeanOfTimeBodyGyroJearkMeanX</code></li>
 </ul>
 </div>
-<div id="correr-el-analisis-de-la-base-de-datos" class="section level2">
-<h2>Correr el análisis de la base de datos</h2>
-<p>Para realizar el análisis se debe de correr el código <code>coreer_analisis.R</code>. El análisis hará lo siguinete:</p>
-<ol style="list-style-type: decimal">
-<li>Une los datos de test con los de training, para crear un solo conjunto de datos.</li>
-<li>Extrae únicamente las medidas de media y desviación estándar de cada medición.</li>
-<li>Usa nombres de actividad para describir los nombres de las actividades en la base de datos. 4.Coloca etiquetas apropiadas en la base de datos con nombres de variables que las describan.</li>
-<li>Con los datos del paso 4, crea una segunda base de datos independiente con el promedio de cada variable para cada actividad y cada sujeto.</li>
-</ol>
-<div id="paquetes-adicionales" class="section level3">
-<h3>Paquetes Adicionales</h3>
-<p>Se utilizó el paquete <code>dplyr</code></p>
-<pre class="r"><code>library(dplyr)</code></pre>
-</div>
-<div id="funcionamiento-del-codigo" class="section level3">
-<h3>Funcionamiento del código</h3>
-<p>El código <code>correr_analisis.R</code> hace lo siguiente:</p>
-<div id="declarar-las-direcciones" class="section level4">
-<h4>Declarar las direcciones</h4>
-<ol style="list-style-type: decimal">
-<li>Une los datos de test con los de training, para crear un solo conjunto de datos</li>
-</ol>
-<p>Primero, todas las direcciones de los archivos que tienen que unirse deben de declararse. Esto se encuentra en la primera parte del código.</p>
-<p>Donde primero declaramos el directorio donde vamos a estar trabajando, para posteriormente ingresar a los datos de <code>test</code> y a los de <code>training</code>.</p>
-<pre class="r"><code> setwd(&quot;~/test-repo/Caso 3/UCI HAR Dataset&quot;)    
-    g&lt;-getwd()
-    #Cargar los datos
-        training_set &lt;- read.table(paste(g,&quot;train/X_train.txt&quot;,sep = &quot;/&quot;),quote =&quot;\&quot;&quot;)
-        test_set &lt;- read.table(paste(g,&quot;test/X_test.txt&quot;,sep = &quot;/&quot;),quote =&quot;\&quot;&quot;)</code></pre>
-<p>Después, creamos un solo conjunto de datos, al cual llamaremos <code>data_set</code> que es con el que estaremos trabajando a lo largo del código.</p>
-<pre class="r"><code>        data_set &lt;- rbind(training_set,test_set) #Toma los argumentos y combina por filas
-        #data_set[1:4,1:5]
-    
-    #Quitar data que no se usa
-        rm(test_set,training_set)
-</code></pre>
-</div>
-<div id="extraccion-de-medidas" class="section level4">
-<h4>Extracción de medidas</h4>
-<ol start="2" style="list-style-type: decimal">
-<li>Extrae únicamente las medidas de media y desviación estándar de cada medición.</li>
-</ol>
-<p>En esta parte ingresamos al archivo <code>features.txt</code> para obtener los encabezados de <code>data_set</code>.</p>
-<pre class="r"><code>        features_name &lt;- read.table(paste(g,&quot;features.txt&quot;,sep = &quot;/&quot;),quote =&quot;\&quot;&quot;)[,2]
-        colnames(data_set) &lt;- features_name</code></pre>
-<p>Como nos interesa extraer únicamente las medidas de media y desviación estándar de cada medición utilizaremos <code>grepl</code> que se encarga de buscar coincidencias respecto a un argumento o patrón, en este caso nuestro patrón es <code>'-(mean|std)\\('</code>.</p>
-<pre class="r"><code>        Medidas_Seleccionadas &lt;- grepl('-(mean|std)\\(',features_name) #Busca coincidencias en el vector</code></pre>
-<p>Para finalizar con este paso, actualizamos estas medidas seleccionadas para que aparezcan en <code>data_set</code>.</p>
-<pre class="r"><code>        data_set &lt;- subset(data_set,select=Medidas_Seleccionadas) #Devuelve subsets 
-        #data_set[1:4,1:5]</code></pre>
-</div>
-<div id="etiquetas-apropiadas" class="section level4">
-<h4>Etiquetas apropiadas</h4>
-<ol start="4" style="list-style-type: decimal">
-<li>Coloca etiquetas apropiadas en la base de datos con nombres de variables que las describan</li>
-</ol>
-<p>Nos saltamos al paso 4 porque primero necesitamos nombrar cada columna en nuestra base de datos.</p>
-<pre class="r"><code>        colnames(data_set) &lt;- gsub(&quot;mean&quot;, &quot;Mean&quot;, colnames(data_set))
-        colnames(data_set) &lt;- gsub(&quot;std&quot;, &quot;Std&quot;, colnames(data_set))
-        colnames(data_set) &lt;- gsub(&quot;t&quot;, &quot;Time&quot;, colnames(data_set))
-        colnames(data_set) &lt;- gsub(&quot;f&quot;, &quot;Frequency&quot;, colnames(data_set))
-        colnames(data_set) &lt;- gsub(&quot;\\(\\)&quot;, &quot;&quot;, colnames(data_set))
-        colnames(data_set) &lt;- gsub(&quot;-&quot;, &quot;&quot;, colnames(data_set))
-        colnames(data_set) &lt;- gsub(&quot;BodyBody&quot;, &quot;Body&quot;, colnames(data_set))
-        colnames(data_set) &lt;- gsub(&quot;^&quot;, &quot;MeanOf&quot;, colnames(data_set))
-        colnames(data_set)
-        #data_set[1:4,1:5]</code></pre>
-</div>
-<div id="nombres-de-actividades" class="section level4">
-<h4>Nombres de Actividades</h4>
-<ol start="3" style="list-style-type: decimal">
-<li>Usa nombres de actividad para describir los nombres de las actividades en la base de datos</li>
-</ol>
-<p>Primero, declaramos la dirección para obtener <code>actividades_train</code> y <code>actividades_test</code>, después tomamos los argumentos y combinamos por filas.</p>
-<pre class="r"><code>        actividades_train &lt;- read.table(paste(g,&quot;train/y_train.txt&quot;,sep = &quot;/&quot;),quote =&quot;\&quot;&quot;)
-        actividades_test &lt;- read.table(paste(g,&quot;test/y_test.txt&quot;,sep = &quot;/&quot;),quote =&quot;\&quot;&quot;)
-        actividades &lt;- rbind(actividades_train,actividades_test)[,1]</code></pre>
-<p>Notemos que en el experimento se vieron 6 diferentes actividades, las cuales utilizaremos para describir los nombres en la base de datos.</p>
-<pre class="r"><code>        labels &lt;- c(&quot;WALKING&quot;, &quot;WALKING_UPSTAIRS&quot;, &quot;WALKING_DOWNSTAIRS&quot;,
-                &quot;SITTING&quot;, &quot;STANDING&quot;, &quot;LAYING&quot;)
-        actividades &lt;- labels[actividades]
-        data_set &lt;- cbind(Actividad = actividades,data_set)
-        #data_set[1:4,1:5]</code></pre>
-</div>
-<div id="promedio-de-cada-variable" class="section level4">
-<h4>Promedio de cada Variable</h4>
-<ol start="5" style="list-style-type: decimal">
-<li>Con los datos del paso 4, crea una segunda base de datos independiente con el promedio de cada variable para cada actividad y cada sujeto.</li>
-</ol>
-<p>Ahora nos interesamos en la dirección que nos lleva a los voluntarios, los cuales son 30 en total. Combinamos por filas y después actualizamos <code>data_set</code> para que aparezcan los voluntarios como columna.</p>
-<pre class="r"><code>        voluntario_train &lt;- read.table(paste(g,&quot;train/subject_train.txt&quot;,sep = &quot;/&quot;),quote =&quot;\&quot;&quot;)
-        voluntario_test &lt;- read.table(paste(g,&quot;test/subject_test.txt&quot;,sep = &quot;/&quot;),quote =&quot;\&quot;&quot;)
-        voluntarios &lt;- rbind(voluntario_train,voluntario_test)[,1]
-        data_set &lt;- cbind(Voluntario = voluntarios,data_set) 
-        #data_set[1:4,1:5]</code></pre>
-<p>Por último, utilizamos el paquete <code>dplyr</code> que nos ayudara a manipular nuesta data facilmente. Creamos nuestra segunda base de datos donde vendrán los promedios de cada variable para cada actividad y cada voluntario.</p>
-<pre class="r"><code>        library(dplyr) #paquete que ayuda a manipular data facilmente
-        prom_data_set &lt;- data_set %&gt;% group_by(Voluntario,Actividad) %&gt;% summarise_each(funs(mean))
-        #%&gt;% encadena operaciones</code></pre>
-<p>Y creamos un archivo llamado <code>&quot;tidy_data_set.txt&quot;</code> donde aparecerá la base de datos ordenada.</p>
-<pre class="r"><code>        write.table(prom_data_set,row.name = FALSE,file = &quot;tidy_data_set.txt&quot;) </code></pre>
+<div id="con-los-datos-del-paso-4-crea-una-segunda-base-de-datos-independiente-con-el-promedio-de-cada-variable-para-cada-actividad-y-cada-sujeto." class="section level3">
+<h3>Con los datos del paso 4, crea una segunda base de datos independiente con el promedio de cada variable para cada actividad y cada sujeto.</h3>
+<p>Todos los valores son promedios, agregados 30 voluntarios y 6 actividades , por lo tanto, el conjunto de datos resultante es de 180 filas por 68 columnas .</p>
 <hr />
 <p>Rangel Sevilla Celia Alejandra</p>
-</div>
 </div>
 </div>
 </div>
