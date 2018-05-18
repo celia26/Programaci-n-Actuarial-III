@@ -1,10 +1,10 @@
 ---
 output: html_document
 ---
-# Benemérita Universidad Autónoma de Puebla
-## Facultad de Ciencias Físico Matemáticas
+# BenemÃ©rita Universidad AutÃ³noma de Puebla
+## Facultad de Ciencias FÃ­sico MatemÃ¡ticas
 ### Licenciatura en Actuaria
-#### Programación_Actuarial_III
+#### ProgramaciÃ³n_Actuarial_III
 
 Primavera 2016
 
@@ -13,27 +13,27 @@ Rangel Sevilla Celia Alejandra
 201406346
 
 ### Primer Semestre
- * Programación Actuarial I - 7
- * Intr a la Prefesión Actuarial - 6
+ * ProgramaciÃ³n Actuarial I - 7
+ * Intr a la ProfesiÃ³n Actuarial - 6
  * DHPC - 9
  * Lengua Extranjera I - 10
  * Lengua Extranjera II - 10
  * Lengua Extranjera III - 10
  * Lengua Extranjera IV - 10
- * Conceptos de Cálculo - 7
- * Matemáticas Básicas - 8
- * Problemas de Mat. Básicas - 8
+ * Conceptos de CÃ¡lculo - 7
+ * MatemÃ¡ticas BÃ¡sicas - 8
+ * Problemas de Mat. BÃ¡sicas - 8
  
 ### Segundo Semestre
- * Teoria del Interés I - 8
- * Microeconomía - 9
- * Formación Humana y Social - 9
- * Cálculo Diferencial - 8
+ * Teoria del InterÃ©s I - 8
+ * MicroeconomÃ­a - 9
+ * FormaciÃ³n Humana y Social - 9
+ * CÃ¡lculo Diferencial - 8
 
 ### Tercer Semestre
- * Programación Actuarial II - 8
- * Teoría del Interés II - 7
- * Macroeconomía - 8
+ * ProgramaciÃ³n Actuarial II - 8
+ * TeorÃ­a del InterÃ©s II - 7
+ * MacroeconomÃ­a - 8
  * Calculo Integral - 6
- * Teoría de Ecuaciones - 7
+ * TeorÃ­a de Ecuaciones - 7
  
